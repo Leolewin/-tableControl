@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+    <title>Table Control</title>
+    <link rel="stylesheet/less" href="/css/style.less">
+    <script>
+      less = {
+        env: "development",
+        async: false,
+        fileAsync: false,
+        poll: 1000,
+        functions: {},
+        dumpLineNumbers: "comments",
+        relativeUrls: false,
+        rootpath: false
+      };
+    </script>
+    <script src="./plugins/less/less.min.js"></script>
+    <!-- <link rel="stylesheet/css" href="style.css"> -->
+
+    <!-- <script type="text/javascript" src="./plugins/less/less.min.js"> -->
+    </script>
+    <script src="./resources/sap-ui-core.js"
+            id="sap-ui-bootstrap"
+            data-sap-ui-resourceroots='{"work": "./"}'>
+    </script>
+    <script>
+        sap.ui.getCore().attachInit(function(){
+            sap.ui.require(['work/controls/Table'], function(Table){
+                var oTable = new Table({
+                    rowselected: function(e) {
+                        console.log(e)
+                    }
+                });
+                // oTable.setHeader("hahahaha");
+                $.get('/init_data', function(res){
+                    const data = JSON.parse(res);
+                    oTable.setData(data);
+                    oTable.placeAt('table');
+                })
+
+
+                setTimeout(function(){
+                    $('#table').css({
+                        width: '80%',
+                        margin: '0 auto',
+                        padding: '40px 0 0 0'
+                    });
+                }, 5);
+
+
+            });
+        });
+    </script>
+
+</head>
+
+<body id='content' class='sapUiBody'>
+<div id='table'></div>
+<script src = "./plugins/jquery/jquery.min.js"></script>
+<script>
+
+</script>
+</body>
+</html>

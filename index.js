@@ -1,14 +1,15 @@
-/**
- * Created by I335614 on 10/27/2016.
- */
 const express = require('express');
-const path = require('path');
-const handlebars = require('express-handlebars').create({defaultLayout: 'main', extname : '.hbs'});
-const app = express();
-const port = 9999;
+var path = require('path');
 
+const app = express();
+const port = 8001;
+
+// app.set('views', path.join(__dirname, 'views'));
+
+//set static folder
 app.use(express.static(__dirname + '/public'));
 
+<<<<<<< HEAD
 app.engine('.hbs', handlebars.engine);
 app.set('views', path.join(__dirname, './views'));
 app.set('view engine', '.hbs');
@@ -24,10 +25,36 @@ app.use(function(err, req, res, next){
 	res.status(500);
 	res.render("505");
 });
+=======
+// app.use('/', express.static(__dirname + '/public', options));
+
+app.get('/', function(req, res){
+    res.sendfile('./index.html');
+});
+
+app.get('/init_data', function(req, res){
+    const data = [
+        {ID:"1", Name:"John Smith", Status:"Employed"},
+        {ID:"2", Name:"Randal White", Status:"Employed"},
+        {ID:"3", Name:"Leolewin", Status:"Employed"},
+        {ID:"4", Name:"Steven Brown", Status:"Unemployed"},
+        {ID:"1", Name:"John Smith", Status:"Employed"},
+        {ID:"2", Name:"Randal White", Status:"Employed"},
+        {ID:"3", Name:"Leolewin", Status:"Employed"},
+        {ID:"4", Name:"Steven Brown", Status:"Unemployed"},
+        {ID:"1", Name:"John Smith", Status:"Employed"},
+        {ID:"2", Name:"Randal White", Status:"Employed"},
+        {ID:"3", Name:"Leolewin", Status:"Employed"},
+        {ID:"4", Name:"Steven Brown", Status:"Unemployed"}
+    ];
+    res.send(JSON.stringify(data));
+})
+
+>>>>>>> 97581dcc232cf44c67dbf113005c687d5bc9f572
 
 app.listen(port, '127.0.0.1', function onStart(err) {
-    if (err) {
-        console.log(err);
-    }
-    console.info('==> 🌎 Listening on port %s. Open up http://127.0.0.1:%s/ in your browser.', port, port);
+  if (err) {
+    console.log(err);
+  }
+  console.info('==> 🌎 Listening on port %s. Open up http://127.0.0.1:%s/ in your browser.', port, port);
 });
