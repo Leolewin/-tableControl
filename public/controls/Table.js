@@ -48,20 +48,36 @@ sap.ui.define(['sap/ui/core/Control', 'jquery.sap.global'],
                 //split checkbox here
                 var input = "<td><div class='table-input'><input style='width:14px;height:14px'></input></div></td>"
                 var tds = "", first_td = "", trs = [];
+                var width = -1;
 
                 //first datatype:[{key:value, key:value}, {}, {}]
+                //get td width;
                 if (this.data instanceof Array){
+                    this.data.forEach(function(val){
+                        width++;
+                    });
+                }
+                width = (100/width).toFixed(2);
+
+                if (this.data instanceof Array){
+                    for(var key in this.data[0]){
+                        tds = tds + "<td style='width:"+width+"%'>" + key + "</td>"
+                    }
+                    first_td = input + tds;
+                    trs.push("<tr>" + first_td + "</tr>");
+
                     this.data.forEach(function(val){
                         if (first_td === "") {
                             for(var key in val){
-                                tds = tds + "<td>" + key + "</td>"
+                                tds = tds + "<td style='width:"+width+"%'>" + key + "</td>"
                             }
                             first_td = input + tds;
                             trs.push("<tr>" + first_td + "</tr>");
                         }else{
                             tds = "";
                             for(var key in val){
-                                tds = tds + "<td>" + val[key] + "</td>";
+                                console.log(key);
+                                tds = tds + "<td style='"+width+"%'>" + val[key] + "</td>";
                             }
                             tds = input + tds;
                             trs.push("<tr>" + tds + "</tr>");

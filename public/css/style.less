@@ -39,8 +39,10 @@ footer,header,hgroup,menu,nav,section,summary {
     display:block;
 }
 
-nav ul {
-    list-style:none;
+nav{
+    ul {
+        list-style:none;
+    }
 }
 
 blockquote, q {
@@ -100,4 +102,78 @@ hr {
 
 input, select {
     vertical-align:middle;
+}
+// reset finish
+
+//table config
+.work-table{
+    text-align: center;
+}
+
+@tr_bottom_color: rgb(224, 224, 224);
+@tr_bottom_width: 1px;
+@tr_first_font: 12px;
+@tr_first_height: 56px;
+@tr_first_color: rgb(158, 158, 158);
+@cell_height: 48px;
+@td_pading-lr:0px 24px 0px 24px;
+@td_font_size: 13px;
+@table_padding: 0px 24px;
+@table_width: 100%;
+@table_bg_color: rgb(255, 255, 255);
+table{
+    padding: @table_padding;
+    margin: 0 auto;
+    tbody{
+        display: table-row-group;
+        vertical-align: middle;
+        border-color: inherit;
+        width: @table_width;
+        border-collapse: collapse;
+        border-spacing: 0px;
+        table-layout: fixed;
+        font-family: Roboto, sans-serif;
+        background-color: @table_bg_color;
+        tr{
+            &:first-child{
+                font-weight: normal;
+                font-size: @tr_first_font;
+                padding: @td_pading-lr;
+                height: @tr_first_height;
+                color: @tr_first_color;
+                position: relative;
+            }
+            border-bottom-width: @tr_bottom_width;
+            border-bottom-style: solid;
+            border-bottom-color: @tr_bottom_color;
+            height: @cell_height;
+            vertical-align: inherit;
+            td{
+                height: @cell_height;
+                display: table-cell;
+                padding: @td_pading-lr;
+                font-size: @td_font_size;
+                text-align: left;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                background-color: inherit;
+                vertical-align: inherit;
+            }
+        }
+    }
+}
+
+.clearfix {
+  display: block;
+  zoom: 1;
+
+  &:after {
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
 }

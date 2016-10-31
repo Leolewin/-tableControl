@@ -17,13 +17,13 @@
         rootpath: false
       };
     </script>
-    <script src="less.js"></script>
+    <script src="./plugins/less/less.min.js"></script>
+    <!-- <link rel="stylesheet/css" href="style.css"> -->
 
-    <script type="text/javascript" src="./plugins/less/less.min.js">
+    <!-- <script type="text/javascript" src="./plugins/less/less.min.js"> -->
     </script>
-    <script src="https://openui5.hana.ondemand.com/1.38.4/resources/sap-ui-core.js"
+    <script src="./resources/sap-ui-core.js"
             id="sap-ui-bootstrap"
-            data-sap-ui-theme='sap_bluecrystal'
             data-sap-ui-resourceroots='{"work": "./"}'>
     </script>
     <script>
@@ -39,8 +39,8 @@
 
                 setTimeout(function(){
                     $('#table').css({
-                        width: '800px',
-                        height: '600px'
+                        width: '80%',
+                        margin: '0 auto'
                     });
                 }, 5);
 
