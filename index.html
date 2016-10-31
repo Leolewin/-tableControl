@@ -34,13 +34,19 @@
                         console.log(e)
                     }
                 });
-                // oTable.setData({"ss":"asd", "dd": "sadasd"});
-                oTable.placeAt('table');
+                // oTable.setHeader("hahahaha");
+                $.get('/init_data', function(res){
+                    const data = JSON.parse(res);
+                    oTable.setData(data);
+                    oTable.placeAt('table');
+                })
+
 
                 setTimeout(function(){
                     $('#table').css({
                         width: '80%',
-                        margin: '0 auto'
+                        margin: '0 auto',
+                        padding: '40px 0 0 0'
                     });
                 }, 5);
 

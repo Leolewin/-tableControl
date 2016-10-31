@@ -121,44 +121,124 @@ input, select {
 @table_padding: 0px 24px;
 @table_width: 100%;
 @table_bg_color: rgb(255, 255, 255);
-table{
-    padding: @table_padding;
-    margin: 0 auto;
-    tbody{
-        display: table-row-group;
+@table_header_bg: rgb(232, 232, 232);
+@table_header_highlight: rgba(0, 0, 0, 0);
+@table_header_hight: 56px;
+
+//table outline
+.table-outline{
+    color: rgba(0, 0, 0, 0.870588);
+    transition: aall 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+    box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+    border-radius: 2px;
+    margin-bottom: 32px;
+    background-color: rgb(255, 255, 255);
+}
+
+//table header
+.table-header{
+    border-top-style: solid;
+    border-top-width: @tr_bottom_width;
+    border-top-color: @tr_bottom_color;
+    display: block;
+    // background: rgb(224,224,224);
+
+    .table-header-title{
         vertical-align: middle;
-        border-color: inherit;
-        width: @table_width;
-        border-collapse: collapse;
-        border-spacing: 0px;
-        table-layout: fixed;
-        font-family: Roboto, sans-serif;
-        background-color: @table_bg_color;
-        tr{
-            &:first-child{
-                font-weight: normal;
-                font-size: @tr_first_font;
-                padding: @td_pading-lr;
-                height: @tr_first_height;
-                color: @tr_first_color;
-                position: relative;
-            }
-            border-bottom-width: @tr_bottom_width;
-            border-bottom-style: solid;
-            border-bottom-color: @tr_bottom_color;
-            height: @cell_height;
-            vertical-align: inherit;
-            td{
+        box-sizing: border-box;
+        position: relative;
+        height: @table_header_hight;
+        display: flex;
+        justify-content: space-between;
+        background-color: @table_header_bg;
+        span{
+            padding-left: 24px;
+            padding-right: 16px;
+            line-height: 56px;
+            font-size: 20px;
+            position: relative;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            color: rgba(0, 0, 0, 0.4);
+        }
+    }
+    .table-header-info{
+        vertical-align: middle;
+        padding: 10px 20px 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        display: flex;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+        word-wrap: break-word;
+        p{
+            margin-bottom: 0 !important;
+            margin-top: 0 !important;
+        }
+        &::before{
+            display: table;
+            content: "";
+        }
+        &::after{
+            clear: both;
+            display: table;
+            content: "";
+        }
+    }
+}
+
+
+//table body
+div.table-body{
+    margin: 0 auto;
+    border-radius: 0px 0px 2px;
+    padding: 14px 24px 24px;
+    table{
+        padding: @table_padding;
+        margin: 0 auto;
+        tbody{
+            display: table-row-group;
+            vertical-align: middle;
+            border-color: inherit;
+            width: @table_width;
+            border-collapse: collapse;
+            border-spacing: 0px;
+            table-layout: fixed;
+            font-family: Roboto, sans-serif;
+            background-color: @table_bg_color;
+            tr{
+                &:first-child{
+                    font-weight: normal;
+                    font-size: @tr_first_font;
+                    padding: @td_pading-lr;
+                    height: @tr_first_height;
+                    color: @tr_first_color;
+                    position: relative;
+                }
+                &:last-child{
+                    border: none;
+                }
+                border-bottom-width: @tr_bottom_width;
+                border-bottom-style: solid;
+                border-bottom-color: @tr_bottom_color;
                 height: @cell_height;
-                display: table-cell;
-                padding: @td_pading-lr;
-                font-size: @td_font_size;
-                text-align: left;
-                overflow: hidden;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                background-color: inherit;
                 vertical-align: inherit;
+                td{
+                    height: @cell_height;
+                    display: table-cell;
+                    padding: @td_pading-lr;
+                    font-size: @td_font_size;
+                    text-align: left;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    background-color: inherit;
+                    vertical-align: inherit;
+                }
             }
         }
     }

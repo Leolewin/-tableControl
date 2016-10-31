@@ -14,6 +14,26 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', function(req, res){
     res.sendfile('./index.html');
 });
+
+app.get('/init_data', function(req, res){
+    const data = [
+        {ID:"1", Name:"John Smith", Status:"Employed"},
+        {ID:"2", Name:"Randal White", Status:"Employed"},
+        {ID:"3", Name:"Leolewin", Status:"Employed"},
+        {ID:"4", Name:"Steven Brown", Status:"Unemployed"},
+        {ID:"1", Name:"John Smith", Status:"Employed"},
+        {ID:"2", Name:"Randal White", Status:"Employed"},
+        {ID:"3", Name:"Leolewin", Status:"Employed"},
+        {ID:"4", Name:"Steven Brown", Status:"Unemployed"},
+        {ID:"1", Name:"John Smith", Status:"Employed"},
+        {ID:"2", Name:"Randal White", Status:"Employed"},
+        {ID:"3", Name:"Leolewin", Status:"Employed"},
+        {ID:"4", Name:"Steven Brown", Status:"Unemployed"}
+    ];
+    res.send(JSON.stringify(data));
+})
+
+
 app.listen(port, '127.0.0.1', function onStart(err) {
   if (err) {
     console.log(err);
