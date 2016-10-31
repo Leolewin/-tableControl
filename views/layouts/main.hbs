@@ -7,25 +7,28 @@
 <script src="https://openui5.hana.ondemand.com/1.38.4/resources/sap-ui-core.js"
   id="sap-ui-bootstrap"
   data-sap-ui-theme='sap_bluecrystal'
-  data-sap-ui-resourceroots='{"demo": "./"}'>
+  data-sap-ui-resourceroots='{"work": "/public/controls"}'>
 </script>
 <script>
-//	sap.ui.getCore().attachInit(function(){
-//      sap.ui.require(['demo/controls/Map'], function(Map){
-//          var oMap = new Map();
-//          oMap.placeAt('map');
-//
-//          setTimeout(function(){
-//            $('#map').css({
-//                width: '400px',
-//                height: '300px'
-//            });
-//          }, 5);
-//
-//
-//      });
-//	});
-//  console.log("1");
+	sap.ui.getCore().attachInit(function(){
+        console.log(1);
+     sap.ui.require(['work/Table'], function(Table){
+         console.log(2);
+         var oTable = new Table();
+
+
+         oTable.placeAt('table');
+
+         setTimeout(function(){
+           $('#table').css({
+               width: '400px',
+               height: '300px'
+           });
+         }, 5);
+
+
+     });
+	});
 </script>
 </head>
 
