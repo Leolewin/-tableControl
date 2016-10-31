@@ -9,12 +9,20 @@ const port = 9999;
 
 app.use(express.static(__dirname + '/public'));
 
-app.engine('hbs', handlebars.engine);
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+app.engine('.hbs', handlebars.engine);
+app.set('views', path.join(__dirname, './views'));
+app.set('view engine', '.hbs');
 
-app.get('/home', function(req, res){
+app.get('/', function(req, res){
+  // res.send('home');
   res.render('home');
+});
+
+//500
+app.use(function(err, req, res, next){
+	console.error(err.stack);
+	res.status(500);
+	res.render("505");
 });
 
 app.listen(port, '127.0.0.1', function onStart(err) {
