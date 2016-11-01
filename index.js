@@ -9,15 +9,14 @@ const port = 8001;
 //set static folder
 app.use(express.static(__dirname + '/public'));
 
-<<<<<<< HEAD
-app.engine('.hbs', handlebars.engine);
-app.set('views', path.join(__dirname, './views'));
-app.set('view engine', '.hbs');
+// app.engine('.hbs', handlebars.engine);
+// app.set('views', path.join(__dirname, './views'));
+// app.set('view engine', '.hbs');
 
-app.get('/', function(req, res){
-  // res.send('home');
-  res.render('home');
-});
+// app.get('/', function(req, res){
+//   // res.send('home');
+//   res.render('home');
+// });
 
 //500
 app.use(function(err, req, res, next){
@@ -25,7 +24,6 @@ app.use(function(err, req, res, next){
 	res.status(500);
 	res.render("505");
 });
-=======
 // app.use('/', express.static(__dirname + '/public', options));
 
 app.get('/', function(req, res){
@@ -49,8 +47,6 @@ app.get('/init_data', function(req, res){
     ];
     res.send(JSON.stringify(data));
 })
-
->>>>>>> 97581dcc232cf44c67dbf113005c687d5bc9f572
 
 app.listen(port, '127.0.0.1', function onStart(err) {
   if (err) {
