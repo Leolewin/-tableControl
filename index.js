@@ -9,6 +9,21 @@ const port = 8001;
 //set static folder
 app.use(express.static(__dirname + '/public'));
 
+// app.engine('.hbs', handlebars.engine);
+// app.set('views', path.join(__dirname, './views'));
+// app.set('view engine', '.hbs');
+
+// app.get('/', function(req, res){
+//   // res.send('home');
+//   res.render('home');
+// });
+
+//500
+app.use(function(err, req, res, next){
+	console.error(err.stack);
+	res.status(500);
+	res.render("505");
+});
 // app.use('/', express.static(__dirname + '/public', options));
 
 app.get('/', function(req, res){
@@ -32,7 +47,6 @@ app.get('/init_data', function(req, res){
     ];
     res.send(JSON.stringify(data));
 })
-
 
 app.listen(port, '127.0.0.1', function onStart(err) {
   if (err) {
