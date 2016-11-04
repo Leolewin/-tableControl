@@ -122,6 +122,8 @@ sap.ui.define(['sap/ui/core/Control', 'jquery.sap.global'],
                 $("work-class").on("rowselected", function(e){
                     console.log(e);
                 });
+
+                this.attachEvent('rowselected', function(e){console.log(e);});
             }
 
 
