@@ -119,11 +119,12 @@ sap.ui.define(['sap/ui/core/Control', 'jquery.sap.global'],
                     self.fireEvent("rowselected", {value: 1});
                     // this.fireEvent("change", {value : 1});
                 });
-                $("work-class").on("rowselected", function(e){
-                    console.log(e);
+                this.attachEvent('rowselected', function(e){console.log('e');});
+                $("work-class").on("click", function(e){
+                    this.fireEvent("rowselected");
                 });
 
-                this.attachEvent('rowselected', function(e){console.log(e);});
+
             }
 
 

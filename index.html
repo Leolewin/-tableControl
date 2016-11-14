@@ -29,11 +29,7 @@
     <script>
         sap.ui.getCore().attachInit(function(){
             sap.ui.require(['work/controls/Table'], function(Table){
-                var oTable = new Table({
-                    rowselected: function(e) {
-                        console.log(e)
-                    }
-                });
+                var oTable = new Table({});
                 // oTable.setHeader("hahahaha");
                 $.get('/init_data', function(res){
                     const data = JSON.parse(res);
