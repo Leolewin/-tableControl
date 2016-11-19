@@ -37,6 +37,12 @@ sap.ui.define(['sap/ui/core/Control', 'jquery.sap.global'],
                         ]
                     }
                 },
+                aggregations: {
+                    "coloum":{
+                        type: "sap.m.control",
+                        multiple: true;
+                    }
+                },
                 events: {
                     rowselected: {
                         parameters: {
